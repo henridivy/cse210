@@ -65,7 +65,10 @@ class Program
                     string[] parts = line.Split(",");
 
                     string date = parts[0];
-                    string prompt = parts[1]; 
+                    string prompt = parts[1];
+                    string response = parts[2];
+
+
                 }
                 // using (StreamReader journalFile = new StreamReader(filename))
                 // {
@@ -80,17 +83,7 @@ class Program
 
             else if (menuUserInput == 4)
             {
-                Console.WriteLine("What is the name of the file?");
-                string filename = Console.ReadLine();
-
-                using (StreamWriter outputFile = new StreamWriter(filename))
-                {
-                    foreach (Entry entry in myJournal._entries)
-                    {
-                        outputFile.WriteLine($"{entry._date},{entry._prompt},{entry._response}");
-                    }
-
-                }
+                myJournal.SaveToCSV(myJournal);
             }
 
             Console.WriteLine();

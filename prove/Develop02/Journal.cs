@@ -33,4 +33,19 @@ public class Journal
             entry.DisplayEntry();
         }
     }
+
+    public void SaveToCSV(Journal journalName)
+    {
+        Console.WriteLine("What is the name of the file?");
+        string filename = Console.ReadLine();
+
+        using (StreamWriter outputFile = new StreamWriter(filename))
+        {
+            foreach (Entry entry in journalName._entries)
+            {
+                outputFile.WriteLine($"{entry._date},{entry._prompt},{entry._response}");
+            }
+
+        }
+    }
 }
