@@ -12,13 +12,16 @@ public class Journal
     }
 
     // create a method that creates a journal entry
-    public void CreateJournalEntry()
+    public void CreateJournalEntry(string prompt)
     {
-        // give the user a random prompt
-        
-
         Entry newEntry = new Entry();
+
+        DateTime theCurrentTime = DateTime.Now;
+        string dateText = theCurrentTime.ToShortDateString();
+
         newEntry._response = Console.ReadLine();
+        newEntry._prompt = prompt;
+        newEntry._date = dateText;
         _entries.Add(newEntry);
     }
 

@@ -3,7 +3,7 @@ public class PromptGenerator
 {
     public List<string> _prompts = new List<string>();
     
-    public void ChooseRandomPrompt()
+    public string ChooseRandomPrompt()
     {
         // read from the text file with prompts
         string filename = "prompts.txt";
@@ -21,6 +21,6 @@ public class PromptGenerator
         // assign the randomPrompt variable to whatever was in the random index we got
         string randomPrompt = _prompts[index];
 
-        Console.WriteLine(randomPrompt);
+        return randomPrompt;
     }
 }
