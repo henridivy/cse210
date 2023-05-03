@@ -65,13 +65,13 @@ class Program
             else if (menuUserInput == 3)
             {
                 // use the method to load a journal file that you can then add to
-                myJournal.LoadFromCSV(myJournal);
+                myJournal.LoadFile(myJournal);
             }
 
             else if (menuUserInput == 4)
             {
                 // use the method to save the entries so far to a journal file
-                myJournal.SaveToCSV(myJournal);
+                myJournal.SaveFile(myJournal);
             }
 
             Console.WriteLine();

@@ -22,6 +22,8 @@ public class Journal
         newEntry._response = response;
         newEntry._prompt = prompt;
         newEntry._date = date;
+
+        // add the new entry and its attributes to the list of entries
         _entries.Add(newEntry);
     }
 
@@ -34,7 +36,8 @@ public class Journal
         }
     }
 
-    public void SaveToCSV(Journal journalName)
+    // create a method that saves all entries so far to a file
+    public void SaveFile(Journal journalName)
     {
         Console.WriteLine("What is the name of the file?");
         string filename = Console.ReadLine();
@@ -49,12 +52,14 @@ public class Journal
         }
     }
 
-    public void LoadFromCSV(Journal journalName)
+    // create a method that loads an existing file with journal entries, where you can continue to add
+    public void LoadFile(Journal journalName)
     {
         Console.WriteLine("What is the name of the file?");
         string filename = Console.ReadLine();
         string[] lines = System.IO.File.ReadAllLines(filename);
 
+        // clear the previous saved entries so files don't combine
         _entries.Clear();
 
         foreach (string line in lines)
