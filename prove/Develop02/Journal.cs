@@ -12,16 +12,16 @@ public class Journal
     }
 
     // create a method that creates a journal entry
-    public void CreateJournalEntry(string prompt)
+    public void CreateJournalEntry(string prompt, string date, string response)
     {
         Entry newEntry = new Entry();
 
-        DateTime theCurrentTime = DateTime.Now;
-        string dateText = theCurrentTime.ToShortDateString();
+        // DateTime theCurrentTime = DateTime.Now;
+        // string dateText = theCurrentTime.ToShortDateString();
 
-        newEntry._response = Console.ReadLine();
+        newEntry._response = response;
         newEntry._prompt = prompt;
-        newEntry._date = dateText;
+        newEntry._date = date;
         _entries.Add(newEntry);
     }
 
@@ -46,6 +46,24 @@ public class Journal
                 outputFile.WriteLine($"{entry._date},{entry._prompt},{entry._response}");
             }
 
+        }
+    }
+
+    public void LoadFromCSV(Journal journalName)
+    {
+        Console.WriteLine("What is the name of the file?");
+        string filename = Console.ReadLine();
+        string[] lines = System.IO.File.ReadAllLines(filename);
+
+        foreach (string line in lines)
+        {
+            string[] parts = line.Split(",");
+
+            string date = parts[0];
+            string prompt = parts[1];
+            string response = parts[2];
+
+            journalName.CreateJournalEntry(prompt, date, response);
         }
     }
 }

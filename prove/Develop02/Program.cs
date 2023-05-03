@@ -45,8 +45,14 @@ class Program
                 // display the prompt in the terminal
                 Console.WriteLine(randomPrompt);
 
+                string userResponse = Console.ReadLine();
+
+
+                DateTime theCurrentTime = DateTime.Now;
+                string dateText = theCurrentTime.ToShortDateString();
+
                 // use the prompt to create a journal entry with the user's response and current date
-                myJournal.CreateJournalEntry(randomPrompt);
+                myJournal.CreateJournalEntry(randomPrompt, dateText, userResponse);
             }
 
             else if (menuUserInput == 2)
@@ -56,20 +62,8 @@ class Program
 
             else if (menuUserInput == 3)
             {
-                Console.WriteLine("What is the name of the file?");
-                string filename = Console.ReadLine();
-                string[] lines = System.IO.File.ReadAllLines(filename);
-
-                foreach (string line in lines)
-                {
-                    string[] parts = line.Split(",");
-
-                    string date = parts[0];
-                    string prompt = parts[1];
-                    string response = parts[2];
-
-
-                }
+                myJournal.LoadFromCSV(myJournal);
+                
                 // using (StreamReader journalFile = new StreamReader(filename))
                 // {
                 //     string line;
