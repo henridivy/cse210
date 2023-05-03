@@ -39,6 +39,7 @@ public class Journal
     // create a method that saves all entries so far to a file
     public void SaveFile(Journal journalName)
     {
+        // give a name to this file
         Console.Write("What is the name of the file? ");
         string filename = Console.ReadLine();
         // assign a password to this journal
@@ -47,6 +48,7 @@ public class Journal
 
         using (StreamWriter outputFile = new StreamWriter(filename))
         {
+            // for each entry in the entries list, write a line in the file with the entry information, separated by ||
             foreach (Entry entry in journalName._entries)
             {
                 outputFile.WriteLine($"{entry._date}||{entry._prompt}||{entry._response}");
@@ -70,8 +72,10 @@ public class Journal
 
         string[] lines = System.IO.File.ReadAllLines(filename);
 
+        // get the index of the last line, where the password would be stored
         int lastIndex = lines.Count() - 1;
 
+        // if the password is correct...
         if (lines[lastIndex] == $"Password: {password}")
         {
             // clear the previous saved entries so files don't combine
@@ -81,7 +85,7 @@ public class Journal
             {
                 string[] parts = line.Split("||");
 
-                // checks if the line has more than one part, this ensures it doesn't include the password
+                // check if the line has more than one part, this ensures it doesn't include the password or blank spaces
                 if (parts.Count() > 1)
                 {
                     string date = parts[0];
