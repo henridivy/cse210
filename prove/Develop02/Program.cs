@@ -45,43 +45,36 @@ class Program
                 // display the prompt in the terminal
                 Console.WriteLine(randomPrompt);
 
+                // get the user's response
                 string userResponse = Console.ReadLine();
 
-
+                // get the current date
                 DateTime theCurrentTime = DateTime.Now;
                 string dateText = theCurrentTime.ToShortDateString();
 
-                // use the prompt to create a journal entry with the user's response and current date
+                // create a journal entry with the prompt, current date, and user's response
                 myJournal.CreateJournalEntry(randomPrompt, dateText, userResponse);
             }
 
             else if (menuUserInput == 2)
             {
+                // use the method to display all journal entries in this journal
                 myJournal.DisplayJournalEntries();
             }
 
             else if (menuUserInput == 3)
             {
+                // use the method to load a journal file that you can then add to
                 myJournal.LoadFromCSV(myJournal);
-                
-                // using (StreamReader journalFile = new StreamReader(filename))
-                // {
-                //     string line;
-                //     while ((line = journalFile.ReadLine()) != null)
-                //     {
-                        
-                //     }
-                // }
-
             }
 
             else if (menuUserInput == 4)
             {
+                // use the method to save the entries so far to a journal file
                 myJournal.SaveToCSV(myJournal);
             }
 
             Console.WriteLine();
         }
-        // switch statement for user input
     }
 }

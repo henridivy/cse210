@@ -55,6 +55,8 @@ public class Journal
         string filename = Console.ReadLine();
         string[] lines = System.IO.File.ReadAllLines(filename);
 
+        _entries.Clear();
+
         foreach (string line in lines)
         {
             string[] parts = line.Split(",");
