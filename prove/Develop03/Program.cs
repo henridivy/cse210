@@ -14,7 +14,12 @@ class Program
         //     "2. "
         // };
 
-        IDictionary<string, string> scriptures = new Dictionary<string, string>();
+        IDictionary<Reference, string> scriptures = new Dictionary<Reference, string>();
         
+        Reference moses = new Reference("Moses", "1", "39");
+
+        scriptures.Add(
+            moses, "For behold, this is my work and my glory—to bring to pass the immortality and eternal life of man."
+            );
     }
 }

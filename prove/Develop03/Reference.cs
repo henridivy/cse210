@@ -19,10 +19,11 @@ public class Reference
         _chapter = chapter;
         _startVerse = start;
         _endVerse = "-" + end;
+    }
 
-    // public string GetReference()
-    // {
-    //     string reference = $"{_book} {_chapter}:{_startVerse}{_endVerse}";
-    //     return reference;
-    // }
+    public string GetReference()
+    {
+        string reference = $"{_book} {_chapter}:{_startVerse}{_endVerse}";
+        return reference;
+    }
 }
