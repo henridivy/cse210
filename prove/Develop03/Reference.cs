@@ -1,5 +1,6 @@
 public class Reference
 {
+    // assign attributes each reference will have
     private string _book;
     private string _chapter;
     private string _startVerse;
@@ -8,14 +9,16 @@ public class Reference
     // or you can say -->
     // private string _book, _chapter, _startVerse, _endVerse;
 
+    // create a constructor for if the scripture only contains one verse
     public Reference(string book, string chapter, string start)
     {
         _book = book;
         _chapter = chapter;
         _startVerse = start;
-        _endVerse = "";
+        _endVerse = "";         // end verse is blank
     }
     
+    // create a constructor for if the scripture contains multiple verses
     public Reference(string book, string chapter, string start, string end)
     {
         _book = book;
@@ -24,6 +27,7 @@ public class Reference
         _endVerse = end;
     }
 
+    // method to create and return the reference for the scripture
     public string GetReference()
     {
         string reference = "";
