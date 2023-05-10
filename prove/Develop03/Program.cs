@@ -1,25 +1,27 @@
 using System;
+using System.Collections.Generic;
 
 class Program
 {
     static void Main(string[] args)
     {
-        Console.WriteLine("Welcome to the Scripture Memorizer Program!");
-        Console.WriteLine("Please choose the scripture you would like to master.");
-        Console.WriteLine();
+        Reference scriptureReference = new Reference("2 Nephi", "32", "3");
+        string scriptureText = "Angels speak by the power of the Holy Ghost; wherefore, they speak the words of Christ. Wherefore, I said unto you, feast upon the words of Christ; for behold, the words of Christ will tell you all things what ye should do.";
+//         
+        Scripture scripture = new Scripture(scriptureReference, scriptureText);
 
-        // List<string> _menu = new List<string>
-        // {
-        //     "1. Moses 1:39",
-        //     "2. "
-        // };
+        string userInput = "";
 
-        IDictionary<Reference, string> scriptures = new Dictionary<Reference, string>();
+        while (userInput != "quit" && scripture.IsCompletelyHidden() == false)
+        {
+            Console.Clear();
+            Console.WriteLine(scripture.GetScripture());
+            Console.WriteLine();
+            Console.ReadLine();
+            scripture.HideRandomWords();
+        }
         
-        Reference moses = new Reference("Moses", "1", "39");
-
-        scriptures.Add(
-            moses, "For behold, this is my work and my glory—to bring to pass the immortality and eternal life of man."
-            );
+        Console.WriteLine();
+        Console.WriteLine($"Congrats, you have memorized {scriptureReference}!");
     }
 }
