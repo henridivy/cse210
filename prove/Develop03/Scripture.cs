@@ -23,7 +23,7 @@ public class Scripture
 
     public string GetScripture()
     {
-        List<string> newListOfWords = new List<string>();
+        string scriptureText = "";
 
         foreach (Word scriptureWord in _words)
         {
@@ -35,15 +35,16 @@ public class Scripture
                     replacedWord += "_";
                 }
 
-                newListOfWords.Add(replacedWord);
+                scriptureText += replacedWord;
             }
             else
             {
-                newListOfWords.Add(scriptureWord.GetWord());
+                scriptureText += (scriptureWord.GetWord());
             }
+            scriptureText += " ";
         } 
 
-        return $"{_reference}: {newListOfWords}";
+        return $"{_reference.GetReference()}: {scriptureText}";
     }
  
     public bool IsCompletelyHidden()

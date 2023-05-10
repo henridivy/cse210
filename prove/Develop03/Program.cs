@@ -22,6 +22,6 @@ class Program
         }
         
         Console.WriteLine();
-        Console.WriteLine($"Congrats, you have memorized {scriptureReference}!");
+        Console.WriteLine($"Congrats, you have memorized {scriptureReference.GetReference()}!");
     }
 }
