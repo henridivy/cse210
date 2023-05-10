@@ -9,6 +9,10 @@ public class Reference
     // or you can say -->
     // private string _book, _chapter, _startVerse, _endVerse;
 
+    public Reference()
+    {
+    }
+
     // create a constructor for if the scripture only contains one verse
     public Reference(string book, string chapter, string start)
     {
