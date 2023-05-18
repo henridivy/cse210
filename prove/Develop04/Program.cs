@@ -50,15 +50,18 @@ class Program
             if (menuUserInput == 1)
             {
                 breathingAct.BeginActivity();
-
+                breathingAct.GetReady();
                 breathingAct.StartBreathingSequence();
-
                 breathingAct.EndActivity();
             }
 
             else if (menuUserInput == 2)
             {
                 reflectingAct.BeginActivity();
+                reflectingAct.GetReady();
+                reflectingAct.PresentPrompt();
+                reflectingAct.AskQuestions();
+                reflectingAct.EndActivity();
             }
 
             else if (menuUserInput == 3)

@@ -29,6 +29,19 @@ public class Acitivy
         return _activityDuration;
     }
 
+    public void GetReady()
+    {
+        Console.Clear();
+        Console.Write("Get ready");
+        for (int i = 0; i < 3; i++)
+        {
+            Console.Write(".");
+            Thread.Sleep(1200);
+        }
+        Console.WriteLine();
+        Console.WriteLine();
+    }
+        
     public void BeginActivity()
     {
         Console.Clear();
@@ -75,7 +88,7 @@ public class Acitivy
             string s = spinner[i];
             Console.Write(s);
             Thread.Sleep(300);
-            Console.Write("\b\b  \b\b");
+            Console.Write("\b \b");
 
             i++;
 
