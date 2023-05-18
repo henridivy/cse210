@@ -19,6 +19,8 @@ public class ReflectingActivity : Acitivy
         int index = random.Next(_reflectionPrompts.Count);
         // assign the randomPrompt variable to whatever was in the random index we got
         string randomPrompt = _reflectionPrompts[index];
+        // remove the prompt from the list so it doesn't choose it again
+        _reflectionPrompts.Remove(_reflectionPrompts[index]);
 
         return randomPrompt;
     }
@@ -37,7 +39,7 @@ public class ReflectingActivity : Acitivy
         Console.ReadLine();
         Console.WriteLine("\nNow ponder on each of the following questions as they related to this experience.");
         Console.Write("You may begin in: ");
-        Countdown(9);
+        Countdown(6);
     }
 
     public void AskQuestions()
@@ -46,23 +48,9 @@ public class ReflectingActivity : Acitivy
         int secondsSoFar = 0;
         int duration = GetActivityDuration();
 
-        foreach (string item in _reflectionPrompts)
-        {
-            Console.WriteLine(item);
-        }
-
-        Console.ReadLine();
-
         while (secondsSoFar < duration)
         {
             Console.Write("> " + GetPromptFromFile("reflectionQuestions.txt") +  " ");
-
-            foreach (string item in _reflectionPrompts)
-            {
-                Console.WriteLine(item);
-            }
-
-            Console.ReadLine();
 
             DisplaySpinner(10);
             Console.WriteLine();
