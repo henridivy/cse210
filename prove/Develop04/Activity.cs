@@ -53,10 +53,18 @@ public class Acitivy
     public void DisplaySpinner(int numOfSeconds)
     {
         List<string> spinner = new List<string>();
-        spinner.Add(" ^ ");
-        spinner.Add("  >");
-        spinner.Add("<  ");
-        spinner.Add(" v ");
+        // spinner.Add(" ^ ");
+        // spinner.Add("  >");
+        // spinner.Add("<  ");
+        // spinner.Add(" v ");
+        spinner.Add("|");
+        spinner.Add("/");
+        spinner.Add("-");
+        spinner.Add("\\");
+        spinner.Add("|");
+        spinner.Add("/");
+        spinner.Add("-");
+        spinner.Add("\\");
 
         DateTime endTime = (DateTime.Now).AddSeconds(numOfSeconds);
 
@@ -66,8 +74,8 @@ public class Acitivy
         {
             string s = spinner[i];
             Console.Write(s);
-            Thread.Sleep(500);
-            Console.Write("\b\b\b   \b\b\b");
+            Thread.Sleep(300);
+            Console.Write("\b\b  \b\b");
 
             i++;
 

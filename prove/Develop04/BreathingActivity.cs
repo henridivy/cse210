@@ -1,9 +1,5 @@
 public class BreathingActivity : Acitivy
 {
-    private float salary = 100;
-    private float say = 68.2f;
-
-
     public void StartBreathingSequence()
     {
         Console.Clear();

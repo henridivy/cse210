@@ -36,6 +36,7 @@ class Program
         // while user input is not 4, keep displaying the menu
         while (menuUserInput != 4)
         {
+            Console.Clear();
             // display the menu line by line
             foreach (string item in menu)
             {
