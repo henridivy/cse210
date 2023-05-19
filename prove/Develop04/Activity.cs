@@ -49,7 +49,7 @@ public class Acitivy
         Console.WriteLine();
         Console.WriteLine(_activityDescription);
         Console.WriteLine();
-        Console.Write("How long, in seconds, would you like for your session? ");
+        Console.Write("How long, in seconds, would you like for your session? (You should enter a minimum of 10 seconds) ");
         _activityDuration = int.Parse(Console.ReadLine());
     }
 
@@ -66,18 +66,20 @@ public class Acitivy
     public void DisplaySpinner(int numOfSeconds)
     {
         List<string> spinner = new List<string>();
-        // spinner.Add(" ^ ");
-        // spinner.Add("  >");
-        // spinner.Add("<  ");
-        // spinner.Add(" v ");
-        spinner.Add("|");
-        spinner.Add("/");
-        spinner.Add("-");
-        spinner.Add("\\");
-        spinner.Add("|");
-        spinner.Add("/");
-        spinner.Add("-");
-        spinner.Add("\\");
+        // spinner.Add("|");
+        // spinner.Add("/");
+        // spinner.Add("-");
+        // spinner.Add("\\");
+        // spinner.Add("|");
+        // spinner.Add("/");
+        // spinner.Add("-");
+        // spinner.Add("\\");
+        spinner.Add("<>----");
+        spinner.Add("-<>---");
+        spinner.Add("--<>--");
+        spinner.Add("---<>-");
+        spinner.Add("----<>");
+        spinner.Add(">----<");
 
         DateTime endTime = (DateTime.Now).AddSeconds(numOfSeconds);
 
@@ -87,8 +89,9 @@ public class Acitivy
         {
             string s = spinner[i];
             Console.Write(s);
-            Thread.Sleep(300);
-            Console.Write("\b \b");
+            Thread.Sleep(200);
+            // Console.Write("\b\b\b\b\b\b\b\b\b\b\b\b            \b\b\b\b\b\b\b\b\b\b\b\b");
+            Console.Write("\b\b\b\b\b\b      \b\b\b\b\b\b");
 
             i++;
 
@@ -105,6 +108,11 @@ public class Acitivy
         DisplaySpinner(5);
         Console.WriteLine($"You have completed another {_activityDuration} seconds of the {_activityName}.");
         DisplaySpinner(5);
+    }
 
+    public int GetTotalSecondsSpent(int numOfTotalSeconds)
+    {
+        int totalSecondsSpent = numOfTotalSeconds + _activityDuration;
+        return totalSecondsSpent;
     }
 }

@@ -1,7 +1,7 @@
 public class ReflectingActivity : Acitivy
 {
     public List<string> _reflectionPrompts = new List<string>() { };
-    public string GetPromptFromFile(string filename)
+    private string GetPromptFromFile(string filename)
     {
         _reflectionPrompts.Clear();
 

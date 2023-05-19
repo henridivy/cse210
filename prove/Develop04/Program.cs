@@ -33,6 +33,8 @@ class Program
             "4. Quit",
         };
 
+        int totalSecondsSpent = 0;
+
         // while user input is not 4, keep displaying the menu
         while (menuUserInput != 4)
         {
@@ -53,6 +55,10 @@ class Program
                 breathingAct.GetReady();
                 breathingAct.StartBreathingSequence();
                 breathingAct.EndActivity();
+
+                totalSecondsSpent = breathingAct.GetTotalSecondsSpent(totalSecondsSpent);
+                Console.WriteLine($"That makes {totalSecondsSpent} seconds spent in total on the Mindfulness Program!");
+                Console.ReadLine();
             }
 
             else if (menuUserInput == 2)
@@ -62,11 +68,23 @@ class Program
                 reflectingAct.PresentPrompt();
                 reflectingAct.AskQuestions();
                 reflectingAct.EndActivity();
+
+                totalSecondsSpent = reflectingAct.GetTotalSecondsSpent(totalSecondsSpent);
+                Console.WriteLine($"That makes {totalSecondsSpent} seconds spent in total on the Mindfulness Program!");
+                Console.ReadLine();
             }
 
             else if (menuUserInput == 3)
             {
                 listingAct.BeginActivity();
+                listingAct.GetReady();
+                listingAct.PresentPrompt();
+                listingAct.AllowUserToList();
+                listingAct.EndActivity();
+
+                totalSecondsSpent = listingAct.GetTotalSecondsSpent(totalSecondsSpent);
+                Console.WriteLine($"That makes {totalSecondsSpent} seconds spent in total on the Mindfulness Program!");
+                Console.ReadLine();
             }
         }
 
