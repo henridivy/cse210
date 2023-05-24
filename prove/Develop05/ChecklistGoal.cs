@@ -4,6 +4,18 @@ public class ChecklistGoal : Goal
     private int _numCompleted = 0;
     private int _numTotal = 0;
 
+    public ChecklistGoal()
+    {
+        
+    }
+
+    public ChecklistGoal(string goalName, string goalDescription, int goalPoints, int bonusPoints, int numTotal, int numCompleted) : base(goalName, goalDescription, goalPoints)
+    {
+        _bonusPoints = bonusPoints;
+        _numCompleted = numCompleted;
+        _numTotal = numTotal;
+    }
+
     public override void CreateNewGoal()
     {
         base.CreateNewGoal();

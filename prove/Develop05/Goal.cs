@@ -6,6 +6,26 @@ public class Goal
     private string _goalCheck = "[ ]";
     private bool _isCompleted = false;
 
+    public Goal()
+    {
+        
+    }
+
+    public Goal(string goalName, string goalDescription, int goalPoints)
+    {
+        _goalName = goalName;
+        _goalDescription = goalDescription;
+        _goalPoints = goalPoints;
+    }
+
+    public Goal(string goalName, string goalDescription, int goalPoints, bool isCompleted)
+    {
+        _goalName = goalName;
+        _goalDescription = goalDescription;
+        _goalPoints = goalPoints;
+        _isCompleted = isCompleted;
+    }
+
     public virtual void CreateNewGoal()
     {
         Console.Write("What is the name of your goal? ");

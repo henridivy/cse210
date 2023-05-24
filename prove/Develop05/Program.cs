@@ -132,9 +132,33 @@ class Program
                         string goalType = parts[0];
                         string goalName = parts[1];
                         string goalDescription = parts[2];
-                        string goalPoints = parts[3];
+                        int goalPoints = int.Parse(parts[3]);
+
+                        // this is for simple goals, which have the extra boolean
+                        if (parts.Count() == 5)
+                        {
+                            bool isCompleted = bool.Parse(parts[4]);
+
+                            SimpleGoal newSimpleGoal = new SimpleGoal(goalName, goalDescription, goalPoints, isCompleted);
+                            allGoals.Add(newSimpleGoal);
+                        }
                         
-                        // journalName.CreateJournalEntry(prompt, date, response);
+                        // this is for checklist goals, which have the extra bonus points, number of times to complete, and number of times already completed
+                        else if (parts.Count() == 7)
+                        {
+                            int bonusPoints = int.Parse(parts[4]);
+                            int numTotal = int.Parse(parts[5]);
+                            int numCompleted = int.Parse(parts[6]);
+
+                            ChecklistGoal newChecklistGoal = new ChecklistGoal(goalName, goalDescription, goalPoints, bonusPoints, numTotal, numCompleted);
+                            allGoals.Add(newChecklistGoal);
+                        }
+
+                        else
+                        {
+                            EternalGoal newEternalGoal = new EternalGoal(goalName, goalDescription, goalPoints);
+                            allGoals.Add(newEternalGoal);
+                        }
                     }
                 }
             }
