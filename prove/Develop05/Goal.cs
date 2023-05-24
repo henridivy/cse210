@@ -28,6 +28,16 @@ public class Goal
         return _goalDescription;
     }
 
+    public int GetGoalPoints()
+    {
+        return _goalPoints;
+    }
+
+    public bool GetIsCompleted()
+    {
+        return _isCompleted;
+    }
+
     public string GetGoalCheck()
     {
         if (_isCompleted == true)
@@ -41,7 +51,12 @@ public class Goal
     public virtual void DisplayGoal()
     {
         Console.Write(GetGoalCheck());
-        Console.Write($" {GetGoalName()} ({GetGoalDescription()})");
+        Console.WriteLine($" {GetGoalName()} ({GetGoalDescription()})");
+    }
+
+    public virtual void ListGoalInFile(StreamWriter outputFile)
+    {
+        outputFile.WriteLine($"{GetType()}>>{_goalName}>>{_goalDescription}>>{_goalPoints}");
     }
 
 }

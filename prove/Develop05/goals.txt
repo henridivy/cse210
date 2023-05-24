@@ -1,0 +1,5 @@
+0 points
+SimpleGoal>>Wash the dog>>Wash my dog by Friday>>100>>System.Func`1[System.Boolean]
+EternalGoal>>Read a book>>Read a book every week>>50
+ChecklistGoal>>Drink water>>Drink 8 glasses of water today>>20>>100>>8>>0
+ChecklistGoal>>Do exercise>>Exercise 5 times this week>>50>>200>>5>>0

@@ -94,6 +94,55 @@ class Program
                     i++;
                 }
             }
+            
+            else if (menuUserInput == 3)
+            {
+                Console.WriteLine("What is the name of the file? ");
+                string filename = Console.ReadLine();
+                
+                using (StreamWriter outputFile = new StreamWriter(filename))
+                {
+                    outputFile.WriteLine($"{totalPoints} points");
+                    // for each entry in the entries list, write a line in the file with the entry information, separated by ||
+                    foreach (Goal goal in allGoals)
+                    {
+                        goal.ListGoalInFile(outputFile);
+                    }
+
+                }    
+            }
+
+            else if (menuUserInput == 4)
+            {
+                Console.WriteLine("What file do you want to load? ");
+                string filename = Console.ReadLine();
+
+                string[] lines = System.IO.File.ReadAllLines(filename);
+
+                // clear the previous saved goals so files don't combine
+                allGoals.Clear();
+
+                foreach (string line in lines)
+                {
+                    string[] parts = line.Split("||");
+
+                    // check if the line has more than one part, this ensures it doesn't include the first line with the points
+                    if (parts.Count() > 1)
+                    {
+                        string goalType = parts[0];
+                        string goalName = parts[1];
+                        string goalDescription = parts[2];
+                        string goalPoints = parts[3];
+                        
+                        // journalName.CreateJournalEntry(prompt, date, response);
+                    }
+                }
+            }
+
+            else if (menuUserInput == 5)
+            {
+                
+            }
         }       
     }
 }
