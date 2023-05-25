@@ -28,7 +28,7 @@ class Program
         while (menuUserInput != 6)
         {
             // Console.Clear();
-
+            Console.WriteLine();
             Console.WriteLine($"You have {totalPoints} points.");
             Console.WriteLine();
 
@@ -42,6 +42,7 @@ class Program
             menuUserInput = int.Parse(Console.ReadLine());
             Console.WriteLine();
 
+            // if the user chooses to create a new goal
             if (menuUserInput == 1)
             {
                 Console.WriteLine("The type of goals are:");
@@ -81,6 +82,7 @@ class Program
                 }
             }
 
+            // if the user chooses to list all goals
             else if (menuUserInput == 2)
             {
                 int i = 1;
@@ -95,6 +97,7 @@ class Program
                 }
             }
             
+            // if the user chooses to save goals to a file
             else if (menuUserInput == 3)
             {
                 Console.WriteLine("What is the name of the file? ");
@@ -102,7 +105,7 @@ class Program
                 
                 using (StreamWriter outputFile = new StreamWriter(filename))
                 {
-                    outputFile.WriteLine($"{totalPoints} points");
+                    outputFile.WriteLine($"{totalPoints}");
                     // for each entry in the entries list, write a line in the file with the entry information, separated by ||
                     foreach (Goal goal in allGoals)
                     {
@@ -112,6 +115,7 @@ class Program
                 }    
             }
 
+            // if the user chooses to load goals
             else if (menuUserInput == 4)
             {
                 Console.WriteLine("What file do you want to load? ");
@@ -124,7 +128,7 @@ class Program
 
                 foreach (string line in lines)
                 {
-                    string[] parts = line.Split("||");
+                    string[] parts = line.Split(">>");
 
                     // check if the line has more than one part, this ensures it doesn't include the first line with the points
                     if (parts.Count() > 1)
@@ -160,12 +164,38 @@ class Program
                             allGoals.Add(newEternalGoal);
                         }
                     }
+                    else if (parts.Count() == 1)
+                    {
+                        totalPoints = int.Parse(parts[0]);
+                    }
                 }
             }
 
+            // if the user chooses to record an event
             else if (menuUserInput == 5)
             {
+                int i = 1;
+                Console.WriteLine("Your goals are: ");
+
+                foreach (Goal goal in allGoals)
+                {
+                    Console.Write(i + ". ");
+                    Console.WriteLine(goal.GetGoalName());
+                    i++;
+                }
+
+                Console.Write("Which goal did you accomplish? ");
+                int accomplishedGoalNum = int.Parse(Console.ReadLine());
                 
+                Goal accomplishedGoal = allGoals[accomplishedGoalNum - 1];
+
+                // add the appropriate goal points to the total points
+                totalPoints += accomplishedGoal.GetGoalPoints();
+
+                // record the goal as completed accordingly
+                accomplishedGoal.RecordGoal();
+                Console.WriteLine($"You now have {totalPoints} points.");
+                Console.WriteLine();
             }
         }       
     }

@@ -12,6 +12,12 @@ public class SimpleGoal : Goal
 
     public override void ListGoalInFile(StreamWriter outputFile)
     {
-        outputFile.WriteLine($"{GetType()}>>{GetGoalName()}>>{GetGoalDescription()}>>{GetGoalPoints()}>>{GetIsCompleted}");
+        outputFile.WriteLine($"{GetType()}>>{GetGoalName()}>>{GetGoalDescription()}>>{GetGoalPoints()}>>{GetIsCompleted()}");
+    }
+
+    public override void RecordGoal()
+    {
+        SetIsCompleted(true);
+        base.RecordGoal();
     }
 }

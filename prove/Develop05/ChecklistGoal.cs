@@ -27,6 +27,21 @@ public class ChecklistGoal : Goal
         _bonusPoints = int.Parse(Console.ReadLine());
     }
 
+    public override int GetGoalPoints()
+    {
+        // if the checklist goal is fully completed
+        if (GetIsCompleted() == true)
+        {
+            return _bonusPoints;
+        }
+
+        // if it's not fully completed
+        else
+        {
+            return base.GetGoalPoints(); 
+        }
+    }
+
     public int GetNumCompleted()
     {
         return _numCompleted;
@@ -41,11 +56,23 @@ public class ChecklistGoal : Goal
     {
         Console.Write(GetGoalCheck());
         Console.Write($" {GetGoalName()} ({GetGoalDescription()})");
-        Console.WriteLine($" -- Currently completed: {_numCompleted}/{_numTotal}");
+        Console.Write($" -- Currently completed: {_numCompleted}/{_numTotal}");
     }
 
     public override void ListGoalInFile(StreamWriter outputFile)
     {
         outputFile.WriteLine($"{GetType()}>>{GetGoalName()}>>{GetGoalDescription()}>>{GetGoalPoints()}>>{_bonusPoints}>>{_numTotal}>>{_numCompleted}");
+    }
+
+    public override void RecordGoal()
+    {
+        _numCompleted += 1;
+
+        if (_numCompleted == _numTotal)
+        {
+            SetIsCompleted(true);
+        }
+
+        base.RecordGoal();
     }
 }

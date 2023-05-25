@@ -8,7 +8,7 @@ public class Goal
 
     public Goal()
     {
-        
+
     }
 
     public Goal(string goalName, string goalDescription, int goalPoints)
@@ -48,9 +48,14 @@ public class Goal
         return _goalDescription;
     }
 
-    public int GetGoalPoints()
+    public virtual int GetGoalPoints()
     {
         return _goalPoints;
+    }
+
+    public void SetIsCompleted(bool isCompleted)
+    {
+        _isCompleted = isCompleted;
     }
 
     public bool GetIsCompleted()
@@ -71,12 +76,23 @@ public class Goal
     public virtual void DisplayGoal()
     {
         Console.Write(GetGoalCheck());
-        Console.WriteLine($" {GetGoalName()} ({GetGoalDescription()})");
+        Console.Write($" {GetGoalName()} ({GetGoalDescription()})");
     }
 
     public virtual void ListGoalInFile(StreamWriter outputFile)
     {
         outputFile.WriteLine($"{GetType()}>>{_goalName}>>{_goalDescription}>>{_goalPoints}");
+    }
+
+    public virtual void RecordGoal()
+    {
+        // FOR SIMPLE GOAL
+        // set is completed to true
+
+        // FOR CHECKLIST GOAL
+        // add 1 to numCompleted
+        // if numcompleted == numtotal, set is completed to true
+        Console.WriteLine($"Congratulations! You have earned {GetGoalPoints()} points!");
     }
 
 }
