@@ -25,6 +25,33 @@ class Program
         // create a list of goals
         List<Goal> allGoals = new List<Goal>();
 
+        // create a list to keep completed goals
+        List<Goal> completedGoals = new List<Goal>();
+
+        List<string> hoorayMessage = new List<string>();
+        // hoorayMessage.Add("_______________________________________________________________");
+        // hoorayMessage.Add("__________________$$$_________$$$_________$$$_________$$$______");
+        // hoorayMessage.Add("_______________$$$$$$______$$$___$$$___$$$___$$$___$$$___$$$___");
+        // hoorayMessage.Add("______$$$_________$$$______$$$___$$$___$$$___$$$___$$$___$$$___");
+        // hoorayMessage.Add("___$$$$$$$$$______$$$______$$$___$$$___$$$___$$$___$$$___$$$___");
+        // hoorayMessage.Add("______$$$_________$$$______$$$___$$$___$$$___$$$___$$$___$$$___");
+        // hoorayMessage.Add("_______________$$$$$$$$$______$$$_________$$$_________$$$______");
+        // hoorayMessage.Add("_______________________________________________________________");
+        hoorayMessage.Add("                                                               ");
+        hoorayMessage.Add("                  $$$         $$$         $$$         $$$      ");
+        hoorayMessage.Add("               $$$$$$      $$$   $$$   $$$   $$$   $$$   $$$   ");
+        hoorayMessage.Add("      $$$         $$$      $$$   $$$   $$$   $$$   $$$   $$$   ");
+        hoorayMessage.Add("   $$$$$$$$$      $$$      $$$   $$$   $$$   $$$   $$$   $$$   ");
+        hoorayMessage.Add("      $$$         $$$      $$$   $$$   $$$   $$$   $$$   $$$   ");
+        hoorayMessage.Add("               $$$$$$$$$      $$$         $$$         $$$      ");
+        hoorayMessage.Add("                                                               ");
+        
+       
+        
+        
+        
+        
+        
         while (menuUserInput != 6)
         {
             // Console.Clear();
@@ -95,6 +122,19 @@ class Program
                     Console.WriteLine();
                     i++;
                 }
+
+                Console.WriteLine();
+
+                int y = 1;
+                Console.WriteLine("Completed goals: ");
+
+                foreach (Goal completedGoal in completedGoals)
+                {
+                    Console.Write(y + ". ");
+                    completedGoal.DisplayGoal();
+                    Console.WriteLine();
+                    y++;
+                }
             }
             
             // if the user chooses to save goals to a file
@@ -112,6 +152,11 @@ class Program
                         goal.ListGoalInFile(outputFile);
                     }
 
+                    foreach (Goal completedGoal in completedGoals)
+                    {
+                        completedGoal.ListGoalInFile(outputFile);
+                    }
+
                 }    
             }
 
@@ -125,6 +170,7 @@ class Program
 
                 // clear the previous saved goals so files don't combine
                 allGoals.Clear();
+                completedGoals.Clear();
 
                 foreach (string line in lines)
                 {
@@ -139,29 +185,52 @@ class Program
                         int goalPoints = int.Parse(parts[3]);
 
                         // this is for simple goals, which have the extra boolean
-                        if (parts.Count() == 5)
+                        if (goalType == "SimpleGoal")
                         {
                             bool isCompleted = bool.Parse(parts[4]);
 
                             SimpleGoal newSimpleGoal = new SimpleGoal(goalName, goalDescription, goalPoints, isCompleted);
-                            allGoals.Add(newSimpleGoal);
+                            
+                            if (newSimpleGoal.GetIsCompleted() == true)
+                            {
+                                completedGoals.Add(newSimpleGoal);
+                            }
+                            else 
+                            {
+                                allGoals.Add(newSimpleGoal);
+                            }
                         }
-                        
+
                         // this is for checklist goals, which have the extra bonus points, number of times to complete, and number of times already completed
-                        else if (parts.Count() == 7)
+                        else if (goalType == "ChecklistGoal")
                         {
                             int bonusPoints = int.Parse(parts[4]);
                             int numTotal = int.Parse(parts[5]);
                             int numCompleted = int.Parse(parts[6]);
 
                             ChecklistGoal newChecklistGoal = new ChecklistGoal(goalName, goalDescription, goalPoints, bonusPoints, numTotal, numCompleted);
-                            allGoals.Add(newChecklistGoal);
+                            if (newChecklistGoal.GetIsCompleted() == true)
+                            {
+                                completedGoals.Add(newChecklistGoal);
+                            }
+                            else 
+                            {
+                                allGoals.Add(newChecklistGoal);
+                            }
                         }
 
                         else
                         {
-                            EternalGoal newEternalGoal = new EternalGoal(goalName, goalDescription, goalPoints);
-                            allGoals.Add(newEternalGoal);
+                            int howManyTimes = int.Parse(parts[4]);
+                            EternalGoal newEternalGoal = new EternalGoal(goalName, goalDescription, goalPoints, howManyTimes);
+                            if (newEternalGoal.GetIsCompleted() == true)
+                            {
+                                completedGoals.Add(newEternalGoal);
+                            }
+                            else 
+                            {
+                                allGoals.Add(newEternalGoal);
+                            }
                         }
                     }
                     else if (parts.Count() == 1)
@@ -194,8 +263,43 @@ class Program
 
                 // record the goal as completed accordingly
                 accomplishedGoal.RecordGoal();
+                accomplishedGoal.MoveCompletedGoal(allGoals, completedGoals);
                 Console.WriteLine($"You now have {totalPoints} points.");
                 Console.WriteLine();
+            }
+
+            // check whether all simple and checklist goals have been completed
+            
+
+            if (allGoals.Count() > 0)
+            {
+                int controlNum = 0;
+                
+                foreach (Goal goal in allGoals)
+                {
+                    if (goal.GetType() == typeof(EternalGoal))
+                    {
+                        controlNum += 0;
+                    }
+                    else
+                    {
+                        controlNum ++;
+                    }
+                }
+
+                if (controlNum == 0)
+                {
+                    Console.WriteLine();
+                    Console.WriteLine("Hooray! All current goals have been completed! +1000 points!");
+                    totalPoints += 1000;
+
+                    foreach (string image in hoorayMessage)
+                    {
+                        Console.WriteLine(image);
+                        // Thread.Sleep(200);
+                        // Console.Write("\b\b\b\b\b\b\b\b\b\b\b\b\b\b\b\b\b\b\b\b\b\b\b\b\b\b\b\b\b\b                              \b\b\b\b\b\b\b\b\b\b\b\b\b\b\b\b\b\b\b\b\b\b\b\b\b\b\b\b\b\b");
+                    }
+                }
             }
         }       
     }

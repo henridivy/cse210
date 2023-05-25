@@ -64,13 +64,27 @@ public class ChecklistGoal : Goal
         outputFile.WriteLine($"{GetType()}>>{GetGoalName()}>>{GetGoalDescription()}>>{GetGoalPoints()}>>{_bonusPoints}>>{_numTotal}>>{_numCompleted}");
     }
 
+    public override bool GetIsCompleted()
+    {
+        if (_numCompleted >= _numTotal)
+        {
+            return true;
+        }
+        else
+        {
+            return false;
+        }
+    }
+
     public override void RecordGoal()
     {
         _numCompleted += 1;
 
-        if (_numCompleted == _numTotal)
+        if (_numCompleted >= _numTotal)
         {
             SetIsCompleted(true);
+            Console.WriteLine($"You have completed: {GetGoalName()}!");
+
         }
 
         base.RecordGoal();

@@ -58,14 +58,14 @@ public class Goal
         _isCompleted = isCompleted;
     }
 
-    public bool GetIsCompleted()
+    public virtual bool GetIsCompleted()
     {
         return _isCompleted;
     }
 
-    public string GetGoalCheck()
+    public virtual string GetGoalCheck()
     {
-        if (_isCompleted == true)
+        if (GetIsCompleted() == true)
         {
             _goalCheck = "[X]";
         }
@@ -89,10 +89,21 @@ public class Goal
         // FOR SIMPLE GOAL
         // set is completed to true
 
+        // FOR ETERNAL GOAL
+        // add 1 to how many times done
+
         // FOR CHECKLIST GOAL
         // add 1 to numCompleted
         // if numcompleted == numtotal, set is completed to true
-        Console.WriteLine($"Congratulations! You have earned {GetGoalPoints()} points!");
+        Console.WriteLine($"Congratulations! You earned {GetGoalPoints()} points!");
     }
 
+    public void MoveCompletedGoal(List<Goal> uncompletedList, List<Goal> completedList)
+    {
+        if (GetIsCompleted() == true)
+        {
+            uncompletedList.Remove(this);
+            completedList.Add(this);
+        }
+    }
 }

@@ -1,8 +1,12 @@
-640
-SimpleGoal>>Wash the dog>>Wash my dog by Sunday>>100>>True
-EternalGoal>>Read a book>>Read a book every week>>50
-ChecklistGoal>>Drink water>>Drink 8 glasses of water today>>20>>100>>8>>5
-EternalGoal>>Go to church>>Attend church every Sunday>>60
-ChecklistGoal>>Do exercise>>Exercise 5 times this week>>200>>200>>5>>5
+2150
+EternalGoal>>Read a book>>Read a book every week>>50>>6
+EternalGoal>>Go to church>>Attend church every Sunday>>60>>3
+SimpleGoal>>Finish drawing>>Complete the portrait for your friend>>250>>False
+ChecklistGoal>>Study for exam>>Study for at least 6 hours for your midterms>>70>>200>>6>>0
+SimpleGoal>>Wash the dog>>Wash my dog by Sunday>>100>>False
+ChecklistGoal>>Wash the dishes>>Wash the dishes after each meal>>100>>100>>3>>2
+ChecklistGoal>>Drink water>>Drink 8 glasses of water today>>100>>100>>8>>3
+EternalGoal>>Be kind>>Show an act of kindness to someone everyday>>50>>4
 SimpleGoal>>Watch a movie>>Watch a movie for school>>80>>True
-SimpleGoal>>Visit Grandma>>Visit Grandma and bring her cookies>>100>>False
+SimpleGoal>>Visit Grandma>>Visit Grandma and bring her cookies>>100>>True
+ChecklistGoal>>Do exercise>>Exercise 5 times this week>>200>>200>>5>>5

@@ -18,6 +18,7 @@ public class SimpleGoal : Goal
     public override void RecordGoal()
     {
         SetIsCompleted(true);
+        Console.WriteLine($"You have completed: {GetGoalName()}!");
         base.RecordGoal();
     }
 }
