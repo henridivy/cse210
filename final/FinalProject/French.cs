@@ -1,10 +1,9 @@
 public class French : Language
 { 
     // constructor
-    public French(string languageName)
+    public French(string languageName, int languageIndex)
     {
-        _languageIndex = 2;
-        SetLanguageName(languageName, _languageIndex);
+        SetLanguageName(languageName, languageIndex);
     }
 
 }

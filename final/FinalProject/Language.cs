@@ -1,8 +1,18 @@
 public class Language
 {
     private int _totalPoints = 0;
-    private string _languageName = "";
+    protected string _languageName = "";
     protected int _languageIndex = 0;
+
+    public void Countdown(int numOfSeconds)
+    {
+        for (int i = numOfSeconds; i > 0; i--)
+        {
+            Console.Write(i);
+            Thread.Sleep(1000);
+            Console.Write("\b \b");
+        }
+    }
 
     public void SetLanguageName(string languageName, int languageIndex)
     {
@@ -13,6 +23,11 @@ public class Language
     public string GetLanguageName()
     {
         return _languageName;
+    }
+
+    public int GetLanguageIndex()
+    {
+        return _languageIndex;
     }
 
     public void DisplayVocabList()

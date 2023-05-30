@@ -1,26 +1,29 @@
-public class Question
+public abstract class Question
 {
-    private string _question = "";
-    private string _answer = "";
-    private int _correctPoints = 0;
-    private int _wrongPoints = 0;
+    protected string _question = "";
+    protected string _answer = "";
+    protected int _correctPoints = 0;
+    protected int _wrongPoints = 0;
 
-    public void AskQuestions(int totalPoints)
+    public abstract int AskQuestion(int totalPoints, int languageIndex, string languageName);
+
+    public void SetCorrectPoints(int points)
     {
-        string filename = "vocabulary.txt";
+        _correctPoints = points;
+    }
 
-        string[] lines = System.IO.File.ReadAllLines(filename);
-        lines = lines.Skip(1).ToArray();
+    public int GetCorrectPoints()
+    {
+        return _correctPoints;
+    }
 
-        foreach (string line in lines)
-        {
-            string[] parts = line.Split(",");
-        
+    public void SetWrongPoints(int points)
+    {
+        _wrongPoints = points;
+    }
 
-            while (totalPoints < 50)
-            {
-                Console.WriteLine("");
-            }
-        }
+    public int GetWrongPoints()
+    {
+        return _wrongPoints;
     }
 }
