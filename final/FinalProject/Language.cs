@@ -30,6 +30,16 @@ public class Language
         return _languageIndex;
     }
 
+    public int GetTotalPoints()
+    {
+        return _totalPoints;
+    }
+
+    public void AddToTotalPoints(int pointsToAdd)
+    {
+        _totalPoints += pointsToAdd;
+    }
+
     public void DisplayVocabList()
     {
         string filename = "vocabulary.txt";

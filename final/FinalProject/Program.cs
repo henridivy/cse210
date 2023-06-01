@@ -25,7 +25,7 @@ class Program
 
         // initialize these values
         int menuChoice = 0;
-        int totalPoints = 0;
+        // int totalPoints = 0;
 
         // while the user does not choose to quit...
         while (menuChoice != 6)
@@ -70,7 +70,7 @@ class Program
 
             // display the user's total points
             Console.WriteLine();
-            Console.WriteLine($"You have {totalPoints} points.");
+            Console.WriteLine($"You have {newLanguage.GetTotalPoints()} points.");
             Console.WriteLine();
 
             // introduce level 1
@@ -86,28 +86,37 @@ class Program
 
             Console.Clear();
 
+            // give test instructions
             Console.WriteLine("In this level, 5 points are earned for every correct answer; 3 points are lost for every wrong answer. \n\n Unlock Level 2 by reaching 50 points.");
 
             Console.Write("Begin test!");
             Console.ReadLine();
             newLanguage.Countdown(3);
 
+            // create an instance of the vocab question
             VocabQuestion newVocabQuestion = new VocabQuestion();
 
             newVocabQuestion.SetCorrectPoints(5);
             newVocabQuestion.SetWrongPoints(-3);
 
-            while (totalPoints < 50)
+            // until the user's points reaches 50, ask a vocab question
+            while (newLanguage.GetTotalPoints() < 50)
             {
                 Console.WriteLine();
-                Console.WriteLine($"You have {totalPoints} points.");
+                Console.WriteLine($"You have {newLanguage.GetTotalPoints()} points.");
                 Console.WriteLine();
 
-                int earnedPoints = newVocabQuestion.AskQuestion(totalPoints, newLanguage.GetLanguageIndex(), newLanguage.GetLanguageName());
+                int earnedPoints = newVocabQuestion.AskQuestion(newLanguage.GetTotalPoints(), newLanguage.GetLanguageIndex(), newLanguage.GetLanguageName());
 
-                totalPoints += earnedPoints;
+                newLanguage.AddToTotalPoints(earnedPoints);
             }
             
+            if (newLanguage.GetTotalPoints() >= 50)
+            {
+                Console.Clear();
+                Console.WriteLine("LEVEL 1 COMPLETED!");
+
+            }
 
             
         }
