@@ -1,0 +1,11 @@
+English,Spanish,French,Portuguese
+zero,cero,
+one,uno,
+two,dos,
+three,tres,
+ten,diaz,
+hour,hora,
+minute,minuto,
+day,dia,
+hundred,centenar,
+thousand,mil,

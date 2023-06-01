@@ -3,6 +3,7 @@ public class Language
     private int _totalPoints = 0;
     protected string _languageName = "";
     protected int _languageIndex = 0;
+    private List<Badge> _acquiredBadges;
 
     public void Countdown(int numOfSeconds)
     {
@@ -38,6 +39,11 @@ public class Language
     public void AddToTotalPoints(int pointsToAdd)
     {
         _totalPoints += pointsToAdd;
+    }
+
+    public void AddBadgeToList(Badge acquiredBadge)
+    {
+        _acquiredBadges.Add(acquiredBadge);
     }
 
     public void DisplayVocabList()

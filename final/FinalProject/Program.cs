@@ -67,6 +67,17 @@ class Program
             {
                 newLanguage = new Portuguese(languageChoice, 3);
             }
+            else if (languageChoice == "Latin")
+            {
+                newLanguage = new French(languageChoice, 4);
+            }
+            else if (languageChoice == "Filipino")
+            {
+                newLanguage = new Portuguese(languageChoice, 5);
+            }
+
+
+            // ------------- LEVEL 1 ---------------
 
             // display the user's total points
             Console.WriteLine();
@@ -111,12 +122,100 @@ class Program
                 newLanguage.AddToTotalPoints(earnedPoints);
             }
             
+            // when the user gets to 50 points, complete the level and get a badge
             if (newLanguage.GetTotalPoints() >= 50)
             {
                 Console.Clear();
-                Console.WriteLine("LEVEL 1 COMPLETED!");
+                Console.Write("LEVEL 1 COMPLETED!");
+                Console.ReadLine();
+                Console.WriteLine("<Newbie Badge> ACQUIRED!");
 
+                // create new instance of a NewbieBadge, then display it
+                NewbieBadge badge1 = new NewbieBadge();
+                badge1.CreateBadge();
+                badge1.DisplayBadge();
+
+                // add the badge to the list of acquired badges
+                newLanguage.AddBadgeToList(badge1);
+
+                Console.WriteLine("LEVEL 2 UNLOCKED! ");
+                Console.WriteLine("(Press enter to continue) ");
+                Console.ReadLine();
             }
+
+
+
+            // ------------- LEVEL 2 ---------------
+
+            // display the user's total points
+            Console.WriteLine();
+            Console.WriteLine($"You have {newLanguage.GetTotalPoints()} points.");
+            Console.WriteLine();
+
+            // introduce level 1
+            Console.WriteLine("-----LEVEL 2: Numbers and Time-----");
+            Console.Write("Study the numbers and time terms in the list, pressing enter to continue. After you've gone through all the words, and you feel confident enough, you may take the quiz.");
+            Console.ReadLine();
+            Console.WriteLine();
+
+            // call the method to show the vocabulary list
+            // newLanguage.DisplayNumTimeList();
+
+            Console.WriteLine("You have studied all the words! Time for the test! ");
+
+            Console.Clear();
+
+            // give test instructions
+            Console.WriteLine("In this level, 5 points are earned for every correct answer; 3 points are lost for every wrong answer. \n\n Unlock Level 2 by reaching 50 points.");
+
+            Console.Write("Begin test!");
+            Console.ReadLine();
+            newLanguage.Countdown(3);
+
+            // create an instance of the vocab question
+            // VocabQuestion newVocabQuestion = new VocabQuestion();
+
+            newVocabQuestion.SetCorrectPoints(5);
+            newVocabQuestion.SetWrongPoints(-3);
+
+            // until the user's points reaches 50, ask a vocab question
+            while (newLanguage.GetTotalPoints() < 50)
+            {
+                Console.WriteLine();
+                Console.WriteLine($"You have {newLanguage.GetTotalPoints()} points.");
+                Console.WriteLine();
+
+                int earnedPoints = newVocabQuestion.AskQuestion(newLanguage.GetTotalPoints(), newLanguage.GetLanguageIndex(), newLanguage.GetLanguageName());
+
+                newLanguage.AddToTotalPoints(earnedPoints);
+            }
+            
+            // when the user gets to 50 points, complete the level and get a badge
+            if (newLanguage.GetTotalPoints() >= 50)
+            {
+                Console.Clear();
+                Console.Write("LEVEL 1 COMPLETED!");
+                Console.ReadLine();
+                Console.WriteLine("<Newbie Badge> ACQUIRED!");
+
+                // create new instance of a NewbieBadge, then display it
+                NewbieBadge badge1 = new NewbieBadge();
+                badge1.CreateBadge();
+                badge1.DisplayBadge();
+
+                // add the badge to the list of acquired badges
+                newLanguage.AddBadgeToList(badge1);
+                
+                Console.WriteLine("LEVEL 2 UNLOCKED! ");
+                Console.WriteLine("(Press enter to continue) ");
+                Console.ReadLine();
+            }
+
+
+
+
+
+
 
             
         }
