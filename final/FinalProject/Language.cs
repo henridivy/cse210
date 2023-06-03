@@ -46,67 +46,8 @@ public class Language
         _acquiredBadges.Add(acquiredBadge);
     }
 
-    public void DisplayVocabList()
+    public void DisplayList(string filename)
     {
-        string filename = "vocabulary.txt";
-
-        string[] lines = System.IO.File.ReadAllLines(filename);
-        lines = lines.Skip(1).ToArray();
-
-        foreach (string line in lines)
-        {
-            string[] parts = line.Split(",");
-
-            string englishWord = parts[0];
-            string languageWord = parts[_languageIndex];
-
-            Console.Write($"{englishWord}: {languageWord} \n");
-            Console.Read(); Console.Read();
-        }
-    }
-
-    public void DisplayNumTimeList()
-    {
-        string filename = "numTime.txt";
-
-        string[] lines = System.IO.File.ReadAllLines(filename);
-        lines = lines.Skip(1).ToArray();
-
-        foreach (string line in lines)
-        {
-            string[] parts = line.Split(",");
-
-            string englishWord = parts[0];
-            string languageWord = parts[_languageIndex];
-
-            Console.Write($"{englishWord}: {languageWord} \n");
-            Console.Read(); Console.Read();
-        }
-    }
-
-    public void DisplayDatesList()
-    {
-        string filename = "dates.txt";
-
-        string[] lines = System.IO.File.ReadAllLines(filename);
-        lines = lines.Skip(1).ToArray();
-
-        foreach (string line in lines)
-        {
-            string[] parts = line.Split(",");
-
-            string englishWord = parts[0];
-            string languageWord = parts[_languageIndex];
-
-            Console.Write($"{englishWord}: {languageWord} \n");
-            Console.Read(); Console.Read();
-        }
-    }
-
-    public void DisplayShortPhrasesList()
-    {
-        string filename = "shortPhrases.txt";
-
         string[] lines = System.IO.File.ReadAllLines(filename);
         lines = lines.Skip(1).ToArray();
 

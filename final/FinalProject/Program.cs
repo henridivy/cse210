@@ -91,7 +91,7 @@ class Program
             Console.WriteLine();
 
             // call the method to show the vocabulary list
-            newLanguage.DisplayVocabList();
+            newLanguage.DisplayList("vocabulary.txt");
 
             Console.WriteLine("You have studied all the words! Time for the test! ");
 
@@ -160,7 +160,7 @@ class Program
             Console.WriteLine();
 
             // call the method to show the vocabulary list
-            newLanguage.DisplayNumTimeList();
+            newLanguage.DisplayList("numTime.txt");
 
             Console.WriteLine("You have studied all the terms! Time for the test! ");
 
@@ -229,7 +229,7 @@ class Program
             Console.WriteLine();
 
             // call the method to show the vocabulary list
-            newLanguage.DisplayDatesList();
+            newLanguage.DisplayList("dates.txt");
 
             Console.WriteLine("You have studied all the terms! Time for the test! ");
 
@@ -299,7 +299,7 @@ class Program
             Console.WriteLine();
 
             // call the method to show the vocabulary list
-            newLanguage.DisplayShortPhrasesList();
+            newLanguage.DisplayList("shortPhrases.txt");
 
             Console.WriteLine("You have studied all the terms! Time for the test! ");
 
@@ -352,6 +352,74 @@ class Program
             }
 
 
+            // ------------- LEVEL 5 ---------------
+            // ------------- LEVEL 5 ---------------
+            // ------------- LEVEL 5 ---------------
+            // ------------- LEVEL 5 ---------------
+
+            // display the user's total points
+            Console.Clear();
+            Console.WriteLine($"You have {newLanguage.GetTotalPoints()} points.");
+            Console.WriteLine();
+
+            // introduce level 1
+            Console.WriteLine("-----LEVEL 5: Self-Introduction-----");
+            Console.Write("Study the phrases in the list, pressing enter to continue. After you've gone through all the phrases, and you feel confident enough, you may take the quiz.");
+            Console.ReadLine();
+            Console.WriteLine();
+
+            // call the method to show the vocabulary list
+            newLanguage.DisplayList("shortPhrases.txt");
+
+            Console.WriteLine("You have studied all the terms! Time for the test! ");
+
+            Console.Clear();
+
+            // give test instructions
+            Console.WriteLine("In this level, 25 points are earned for every correct answer; 18 points are lost for every wrong answer. \nUnlock Level 5 by reaching 500 points.");
+
+            Console.Write("\nBegin test!");
+            Console.ReadLine();
+            newLanguage.Countdown(3);
+
+            // create an instance of the vocab question
+            SelfIntroQuestion newSelfIntroQuestion = new SelfIntroQuestion();
+
+            newSelfIntroQuestion.SetCorrectPoints(20);
+            newSelfIntroQuestion.SetWrongPoints(-13);
+
+            // until the user's points reaches 300, ask a short phrases question
+            while (newLanguage.GetTotalPoints() < 500)
+            {
+                Console.WriteLine();
+                Console.WriteLine($"You have {newLanguage.GetTotalPoints()} points.");
+                Console.WriteLine();
+
+                int earnedPoints = newShortPhrasesQuestion.AskQuestion(newLanguage.GetTotalPoints(), newLanguage.GetLanguageIndex(), newLanguage.GetLanguageName());
+
+                newLanguage.AddToTotalPoints(earnedPoints);
+            }
+            
+            // when the user gets to 500 points, complete the level and get a badge
+            if (newLanguage.GetTotalPoints() >= 500)
+            {
+                Console.Clear();
+                Console.Write("LEVEL 4 COMPLETED!");
+                Console.ReadLine();
+                Console.WriteLine("<Community Helper Badge> ACQUIRED!");
+
+                // create new instance of a CommunityHelperBadge, then display it
+                CommunityHelperBadge badge4 = new CommunityHelperBadge();
+                badge4.CreateBadge();
+                badge4.DisplayBadge();
+
+                // add the badge to the list of acquired badges
+                newLanguage.AddBadgeToList(badge4);
+                
+                Console.WriteLine("LEVEL 5 UNLOCKED! ");
+                Console.WriteLine("(Press enter to continue) ");
+                Console.ReadLine();
+            }
 
 
 

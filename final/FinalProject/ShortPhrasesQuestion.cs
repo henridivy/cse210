@@ -43,16 +43,16 @@ public class ShortPhrasesQuestion : Question
         Console.WriteLine(_question);
         string userAnswer = Console.ReadLine();
 
-        // if the user's answer is correct, earn 15 points, otherwise earn -10 points
+        // if the user's answer is correct, earn 20 points, otherwise earn -13 points
         if (userAnswer == _answer)
         {
             earnedPoints = _correctPoints;
-            Console.WriteLine("Correct! +15 points");
+            Console.WriteLine("Correct! +20 points");
         }
         else
         {
             earnedPoints = _wrongPoints;
-            Console.WriteLine("Wrong! -10 points");
+            Console.WriteLine("Wrong! -13 points");
         }
 
         // return points earned
