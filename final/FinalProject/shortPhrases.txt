@@ -1,0 +1,11 @@
+English,Spanish,French,Portuguese,Latin,Filipino
+How are you,Como estas,Comment allez-vous,Como vai voce,Quid agis,Kamusta ka
+Good morning,Buen dia,Bonjour,Bom dia,Bonum mane,Magandang umaga
+Good night,Buenas noches,Bonne nuit,Boa noite,Bonum noctis,Magandang gabi
+Where are you,Donde estas,Ou es-tu,Onde voce esta,Ubi es,Nasaan ka
+What time is it,Que hora es,Quelle heure est-il,Que horas sao,Quid temporem est,Anong oras na
+What is your name,Como te llamas,Quel est ton nom,Qual o seu nome,Quod nomen tibi est,Ano ang pangalan mo
+Thank you,Gracias,Merci,Obrigado,Gratias tibi,Salamat
+Sorry,Lo siento,Desole,Desculpe,Paenitet,Pasensya na
+I love you,Te amo,Je t'aime,Eu te amo,Te amo,Mahal kita
+See you later,Hasta luego,A plus tard,Ate mais,Te visurum,Magkita tayo mamaya

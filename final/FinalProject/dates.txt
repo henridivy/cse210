@@ -1,0 +1,11 @@
+English,Spanish,French,Portuguese,Latin,Filipino
+Monday,Lunes,Lundi,Segunda-feira,dies Lunae,Lunes
+Tuesday,Martes,Mardi,Terça-feira,Martis,Martes
+Sunday,Domingo,Dimanche,Domingo,Sunday,Linggo
+January,Enero,Janvier,Janeiro,Ianuarii,Enero
+December,Diciembre,Décembre,dezembro,Deceptio,Disyembre
+year,ano,annee,ano,annus,taon
+today,hoy,aujourd'hui,hoje,hodie,ngayon
+yesterday,ayer,hier,ontem,hesterno,kahapon
+tomorrow,manana,demain,amanha,cras,bukas
+month,mes,mois,mês,menses,buwan
