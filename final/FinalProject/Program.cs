@@ -432,7 +432,7 @@ class Program
                 // introduce final exam
                 Console.Clear();
                 Console.WriteLine("-----FINAL EXAM-----");
-                Console.Write("Now that you have learned and mastered all the study terms of this language, it is time to have one final test. Answer the questions correctly until you reach 1,000 points. Then you will be awarded your final badge.");
+                Console.Write($"Now that you have learned and mastered all the study terms of {newLanguage.GetLanguageName()}, it is time to have one final test. Answer the questions correctly until you reach 1,000 points. Then you will be awarded your final badge.");
                 Console.ReadLine();
                 Console.WriteLine();
 
@@ -460,9 +460,21 @@ class Program
                     newLanguage.AskFinalExamQuestion();
                 }
 
-                Console.WriteLine("You passed the final exam! HOORAY!");
-                Console.WriteLine($"You have now mastered the basics of {newLanguage.GetLanguageName()}.");
-                Console.WriteLine("Save your progress and choose a new language to begin learning!");
+                Console.Clear();
+
+                Console.WriteLine($"You have {newLanguage.GetTotalPoints()} points.");
+                Console.WriteLine("\nYou passed the final exam! HOORAY!");
+                Console.WriteLine($"You have now mastered the basics of {newLanguage.GetLanguageName()} and acquired the <World Traveler Badge>!");
+
+                // create new instance of a WorldTravelerBadge, then display it
+                WorldTravelerBadge finalBadge = new WorldTravelerBadge();
+                finalBadge.CreateBadge();
+                finalBadge.DisplayBadge();
+
+                // add the badge to the list of acquired badges
+                newLanguage.AddBadgeToList(finalBadge);
+
+                Console.WriteLine("Press enter to return to the menu and choose a new language to begin learning!");
             }            
         }
     }

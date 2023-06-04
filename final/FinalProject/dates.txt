@@ -1,3 +1,4 @@
+English,Spanish,French,Portuguese,Latin,Filipino
 Monday,Lunes,Lundi,Segunda-feira,dies Lunae,Lunes
 Tuesday,Martes,Mardi,Terca-feira,dies Martis,Martes
 Wednesday,Miercoles,Mercredi,Quarta-feira,dies Mercurii,Miyerkules
