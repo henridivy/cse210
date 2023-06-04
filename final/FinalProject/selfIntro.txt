@@ -1,11 +1,11 @@
 English,Spanish,French,Portuguese,Latin,Filipino
-My name is Bob.,Mi nombre es Bob.,Je m'appelle Bob.,Meu nome e Bob.,Mihi nomen Bob.,Ang pangalan ko ay Bob.
-I am ten years old.,Tengo diez anos.,J'ai dix ans.,Eu tenho dez anos de idade.,Ego sum decem annorum.,Sampung taong gulang ako.
-I like playing sports.,Me gusta jugar deportes.,J'aime faire du sport.,Eu gosto de praticar esportes.,Ego similis ludit ludis.,Gusto kong maglaro ng sports.
-I have two sisters.,Tengo dos hermanas.,J'ai deux soeurs.,Eu tenho duas irmas.,Habeo duas sorores.,Mayroon akong dalawang kapatid na babae.
-My favourite color is green.,Mi color favorito es el verde.,Ma couleur preferee est le vert.,Minha cor favorita e verde.,Ventus color viridis.,Ang aking paboritong kulay ay berde.
-I don't like seafood.,No me gustan los mariscos.,Je n'aime pas les fruits de mer.,Eu nao gosto de frutos do mar.,Non sicut seafood.,Ayoko ng pagkaing dagat.
-I am a teacher.,Yo soy un profesor.,Je suis enseignant.,Sou professor.,Ego magistra.,Ako ay isang guro.
-I am from China.,Soy de China.,Je viens de Chine.,Eu sou da china.,Ego de Sinis.,Galing ako sa China.
-I can swim.,Puedo nadar.,Je peux nager.,Eu sei nadar.,Non possum natare.,Maaari akong lumangoy.
-I can't dance.,No puedo bailar.,Je ne peux pas danser.,Eu nao posso dancar.,Et non chorus.,Hindi ako makakasayaw.
+My name is Bob,Mi nombre es Bob,Je m'appelle Bob,Meu nome e Bob,Mihi nomen Bob,Ang pangalan ko ay Bob
+I am ten years old,Tengo diez anos,J'ai dix ans,Eu tenho dez anos de idade,Ego sum decem annorum,Sampung taong gulang ako
+I like playing sports,Me gusta jugar deportes,J'aime faire du sport,Eu gosto de praticar esportes,Ego similis ludit ludis,Gusto kong maglaro ng sports
+I have two sisters,Tengo dos hermanas,J'ai deux soeurs,Eu tenho duas irmas,Habeo duas sorores,Mayroon akong dalawang kapatid na babae
+My favourite color is green,Mi color favorito es el verde,Ma couleur preferee est le vert,Minha cor favorita e verde,Ventus color viridis,Ang aking paboritong kulay ay berde
+I don't like seafood,No me gustan los mariscos,Je n'aime pas les fruits de mer,Eu nao gosto de frutos do mar,Non sicut seafood,Ayoko ng pagkaing dagat
+I am a teacher,Yo soy un profesor,Je suis enseignant,Sou professor,Ego magistra,Ako ay isang guro
+I am from China,Soy de China,Je viens de Chine,Eu sou da china,Ego de Sinis,Galing ako sa China
+I can swim,Puedo nadar,Je peux nager,Eu sei nadar,Non possum natare,Maaari akong lumangoy
+I can't dance,No puedo bailar,Je ne peux pas danser,Eu nao posso dancar,Et non chorus,Hindi ako makakasayaw

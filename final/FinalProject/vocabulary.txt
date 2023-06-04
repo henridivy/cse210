@@ -9,3 +9,8 @@ boy,chico,garcon,garoto,puer,boy
 food,alimento,nourriture,comida,cibus,pagkain
 teacher,maestro,professeur,professor,magister,guro
 happy,feliz,content,feliz,felix,masaya
+sad,triste,triste,triste,tristis,malungkot
+mother,madre,mere,mae,mater,ina
+father,padre,pere,pai,pater,ama
+brother,hermano,frere,irmao,frater,kapatid
+sister,hermana,soeur,irma,soror,ate

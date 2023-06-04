@@ -1,11 +1,15 @@
-English,Spanish,French,Portuguese,Latin,Filipino
 Monday,Lunes,Lundi,Segunda-feira,dies Lunae,Lunes
-Tuesday,Martes,Mardi,Terça-feira,Martis,Martes
-Sunday,Domingo,Dimanche,Domingo,Sunday,Linggo
+Tuesday,Martes,Mardi,Terca-feira,dies Martis,Martes
+Wednesday,Miercoles,Mercredi,Quarta-feira,dies Mercurii,Miyerkules
+Thursday,Jueves,Jeudi,Quinta-feira,dies Iovis,Huwebes
+Friday,Viernes,Vendredi,Sexta-feira,dies Veneris,Biyernes
+Saturday,Sabado,Samedi,Sabado,dies Saturni,Sabado
+Sunday,Domingo,Dimanche,Domingo,dies Solis,Linggo
 January,Enero,Janvier,Janeiro,Ianuarii,Enero
-December,Diciembre,Décembre,dezembro,Deceptio,Disyembre
+February,Febrero,Fevrier,Fevereiro,Februarius,Pebrero
+December,Diciembre,Decembre,Dezembro,Deceptio,Disyembre
 year,ano,annee,ano,annus,taon
 today,hoy,aujourd'hui,hoje,hodie,ngayon
 yesterday,ayer,hier,ontem,hesterno,kahapon
 tomorrow,manana,demain,amanha,cras,bukas
-month,mes,mois,mês,menses,buwan
+month,mes,mois,mes,menses,buwan

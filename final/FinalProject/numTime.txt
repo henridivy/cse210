@@ -3,9 +3,14 @@ zero,cero,zero,zero,nullus,zero
 one,uno,un,um,unus,isa
 two,dos,deux,dois,duo,dalawa
 three,tres,trois,tres,tribus,tatlo
-ten,diaz,dix,dez,decem,sampu
+four,cuatro,quatre,quatro,quatuor,apat
+five,cinco,cinq,cinco,quinque,lima
+ten,diez,dix,dez,decem,sampu
+twenty,veinte,vingt,vinte,viginti,dalawampu
+fifty,cincuenta,cinquante,cinquenta,quinquaginta,limampu
+hundred,centenar,cent,centenas,centum,daan
+thousand,mil,mille,mil,mille,libo
+second,segundo,deuxieme,segundo,secundus,pangalawa
 hour,hora,heure,hora,horam,oras
 minute,minuto,minute,minuto,minute,minuto
 day,dia,jour,dia,dies,araw
-hundred,centenar,cent,centenas,centum,daan
-thousand,mil,mille,mil,mille,libo
